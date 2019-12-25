@@ -5,14 +5,16 @@
        - image: circleci/node:10
      branches:
        only:
-        - master
+         master
      steps:
        - add_ssh_keys:
            fingerprints:
              - "a6:f7:c3:5b:74:89:4e:21:7c:ea:4a:80:bb:97:ab:aa"
        - checkout
-       - run: echo "A first hello"
        - run: npm -v
+       - run:
+           name: install
+           command: yarn install
        - run:
            name: build
            command: yarn build
