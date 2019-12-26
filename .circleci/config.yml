@@ -12,9 +12,21 @@
              - "a6:f7:c3:5b:74:89:4e:21:7c:ea:4a:80:bb:97:ab:aa"
        - checkout
        - run: npm -v
+       - restore_cache:
+           key: dependencies_cache
        - run:
            name: install
            command: yarn install
+       - save_cache:
+           paths:
+             - node_modules
+           key: dependencies_cache
        - run:
            name: build
            command: yarn build
+       - run:
+           name: prepare deploy
+           command: chmod +x scripts/deploy.sh
+       - run:
+           name: deploy
+           command: ./scripts/deploy.sh
