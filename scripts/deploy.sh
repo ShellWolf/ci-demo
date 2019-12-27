@@ -18,6 +18,9 @@ mkdir gh-pages-branch
 cd gh-pages-branch
 # 创建的一个新的仓库
 # 设置发布的用户名与邮箱
+# >/dev/null 将标准输出1重定向到/dev/null中
+# /dev/null代表linux的空设备文件，所有往这个文件里面写入的内容都会丢失，俗称“黑洞”。那么执行了>/dev/null之后，标准输出就会不再存在，没有任何地方能够找到输出的内容。
+# 2>&1采用&可以将两个输出绑定在一起，作用是错误输出将和标准输出同用一个文件描述符(输出到同一个地方)
 git config --global user.email "$GH_EMAIL" >/dev/null 2>&1
 git config --global user.name "$GH_NAME" >/dev/null 2>&1
 git init
