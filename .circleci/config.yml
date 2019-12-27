@@ -4,7 +4,7 @@
      docker:
        - image: circleci/node:10
      branches:
-       only:
+      only:
         - master
      steps:
        - add_ssh_keys:
